@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAPXHA — Coming Soon</title>
+  <meta name="description" content="CAPXHA — The future is loading." />
+  <style>
+    :root {
+      --bg: #050608;
+      --text: #f5f7fb;
+      --muted: #8b93a7;
+      --line: rgba(255,255,255,.08);
+      --glow1: rgba(90,120,255,.35);
+      --glow2: rgba(175,80,255,.28);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent 85%);
+      pointer-events: none;
+    }
+
+    .glow {
+      position: fixed;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      opacity: .9;
+      transform: translate(-50%, -50%);
+      transition: left .08s linear, top .08s linear;
+      background:
+        radial-gradient(circle at 35% 35%, var(--glow1), transparent 55%),
+        radial-gradient(circle at 70% 60%, var(--glow2), transparent 60%);
+    }
+
+    .orb {
+      position: fixed;
+      inset: auto auto -220px 50%;
+      transform: translateX(-50%);
+      width: 680px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(82,96,255,.28), transparent 68%);
+      filter: blur(30px);
+      pointer-events: none;
+    }
+
+    main {
+      width: min(920px, 92vw);
+      text-align: center;
+      padding: 72px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 999px;
+      color: #bcc3d4;
+      background: rgba(255,255,255,.035);
+      backdrop-filter: blur(10px);
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #8fa3ff;
+      box-shadow: 0 0 20px #8fa3ff;
+      animation: pulse 1.8s infinite;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(64px, 13vw, 150px);
+      line-height: .86;
+      letter-spacing: -.07em;
+      font-weight: 800;
+      background: linear-gradient(180deg, #fff 10%, #b9c2d6 45%, #5f6676 95%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 40px rgba(255,255,255,.05);
+    }
+
+    .tagline {
+      margin: 28px auto 0;
+      max-width: 690px;
+      font-size: clamp(22px, 3.5vw, 42px);
+      line-height: 1.06;
+      letter-spacing: -.03em;
+      font-weight: 600;
+    }
+
+    .sub {
+      margin: 18px auto 0;
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .status {
+      margin-top: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 16px 60px rgba(0,0,0,.25);
+      color: #d8deeb;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 22px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #555c6d;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: .5; transform: scale(.9); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    @media (max-width: 600px) {
+      main { padding-top: 40px; }
+      .sub { font-size: 15px; }
+      footer { position: absolute; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow" id="glow"></div>
+  <div class="orb"></div>
+
+  <main>
+    <div class="badge"><span class="dot"></span> System initializing</div>
+    <h1>CAPXHA</h1>
+    <div class="tagline">The future is loading.</div>
+    <p class="sub">
+      Building something new at the edge of technology.
+      A new experience is coming soon.
+    </p>
+    <div class="status">Coming Soon</div>
+  </main>
+
+  <footer>© 2026 CAPXHA</footer>
+
+  <script>
+    const glow = document.getElementById('glow');
+
+    function moveGlow(x, y) {
+      glow.style.left = x + 'px';
+      glow.style.top = y + 'px';
+    }
+
+    moveGlow(window.innerWidth / 2, window.innerHeight / 2);
+
+    window.addEventListener('pointermove', (e) => {
+      moveGlow(e.clientX, e.clientY);
+    });
+  </script>
+</body>
+</html>
